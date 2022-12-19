@@ -1,4 +1,4 @@
-// a program and algorithm for feature analysis and pre-handcraft rule
+// a program and multi-branch search-tree algorithm for making automated decision rules
 // version: 1.0, author: Qinwu Xu @Leidos Holdings Inc., Date: Feb 2011
 
 #include <iostream>
