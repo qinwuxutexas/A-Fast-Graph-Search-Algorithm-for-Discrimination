@@ -1,4 +1,4 @@
-# multibranch depth first search graph tree with dynamic & constrained optimization algorithm, for finding the best classification rule(s). 
+# Multibranch depth first search graph tree with dynamic & constrained optimization algorithm, for finding the best classification rule(s). 
 
 This algorithm intends to serve on top of other big model for rescue or false positive reduction. It is different than the tree algorithm as:
 1) the general tree algorithm only picks out one "best" node at each path and depth as a root node and then goes down to left or right as a binary tree until reaching the leaf at the end. In the inference, the decision rule (path) may vary dependent on the input feature data.
@@ -8,7 +8,7 @@ This algorithm intends to serve on top of other big model for rescue or false po
 Ojbective function: L = min (alpha*Dleta(TP) - Delta(FP)), where Dleta(TP) is the change of true positive rate and Delta (FP) is the change of false positive rate, and alpha is a weight parameter. The FP is constrained to <= threshold.
 
 1) features are ranked at each depth level, and 3 features are selected using the top k algorithm according its objective function value.
-2) graph is built based on the depth-first-serch algorithm from top to leaf.
+2) graph is built based on the depth-first-serch algorithm from top to leaf. It looks like a n-ary tree, but I used the graph to store the nodes and rules, and therefore, I call it a "multi-branch graph".
 3) the best path out of all paths (e.g., the green line path as an exmple here) is identified based on the objective function.
 4) Dyanmic optimization is evolving as: at the upper layers (smaller depth) the optimization focus more on the TP as it strives to obtain the highest TP as possible, while at the lower levels (greater deapth) the optimization gradually reduces FP rates given the constrained condition.
 
