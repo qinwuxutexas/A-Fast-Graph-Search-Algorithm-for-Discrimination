@@ -1,6 +1,6 @@
 # Multibranch depth first search graph tree with dynamic & constrained optimization algorithm, for finding the best classification rule(s). 
 
-This algorithm intends to serve on top of other big model for rescue or false positive reduction. It is different than the tree algorithm as:
+This algorithm aims to find the best path/rule for making classification decision. It is different than the general tree algorithm as:
 1) the general tree algorithm only picks out one "best" node at each path and depth as a root node and then goes down to left or right as a binary tree until reaching the leaf at the end. In the inference, the decision rule (path) may vary dependent on the input feature data.
 2) This algoirthm targets to find the best classification rules with feature ranking. For example, the green line path in the below graph is the best classification rule identified and to be used in classification decision. 
 3) At each depth of each path, three features/nodes are picked out using the top k algorithm (time complexity: nlog(K)) instead of only one as general decision tree does. This increases the likelihood of performance since some lower-rank nodes at upper level may actually result in better performance at lower levels when going down to the leaf along the path, but the general decision tree may miss that opportunity by only picking out the best node at each iteration.
