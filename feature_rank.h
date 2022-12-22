@@ -21,7 +21,7 @@ public:
 	}
 	
 	double featureoverlap();
-	tuple<int, int, double, double>  feature_boundary(int uplimit, int decisiongoal, vector<double> opt_para, int d);
+	tuple<int, int, double, double>  feature_boundary(int uplimit, int decisiongoal, vector<double> & opt_para, int d);
 private:
 	int bin;
 	int nt;
