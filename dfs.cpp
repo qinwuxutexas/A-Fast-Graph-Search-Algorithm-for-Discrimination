@@ -1,7 +1,7 @@
 #include "dfs.h"
 
-Graph::Graph(int decisiongoal_,int depth_, int nchild_, fvec2d f2d_dt_, fvec2d f2d_fa_, svec2d name2d_dt_, svec2d name2d_fa_,
-	vector<double> weights_dt_, vector<double> weights_fa_,vector<double> opt_para_, int ndt_, int nfa_, double percent_)
+Graph::Graph(int decisiongoal_,int depth_, int nchild_, fvec2d & f2d_dt_, fvec2d & f2d_fa_, svec2d & name2d_dt_, svec2d & name2d_fa_,
+	vector<double> & weights_dt_, vector<double> & weights_fa_,vector<double> & opt_para_, int ndt_, int nfa_, double percent_)
 {
 	totalnode = 0;
 	this->depth = depth_;
@@ -72,7 +72,7 @@ void Graph::DFS(int start)
 	DFSUtil(start, visited);
 }
 
-void Graph::DFSUtil(int start, bool visited[]) //add one input: vector<vector<int>> findx
+void Graph::DFSUtil(int start, bool & visited[]) //add one input: vector<vector<int>> findx
 {
 	// Mark the current node as visited and
 	// print it
@@ -85,7 +85,7 @@ void Graph::DFSUtil(int start, bool visited[]) //add one input: vector<vector<in
 			DFSUtil(*i, visited);
 }
 
-map<int, vector<int>> Graph::featureindex(map<int, vector<int>> findex, fvec2d arr2d, int row, double min, double max,
+map<int, vector<int>> Graph::featureindex(map<int, vector<int>> & findex, fvec2d & arr2d, int row, double min, double max,
 	int currentnode, int parentnode) {
 	//row - given row # of 2d array for a specific feature, e.g for mass or density
 	int nd = findex[parentnode].size(); //total column No. of 2d array at given row #
@@ -99,7 +99,7 @@ map<int, vector<int>> Graph::featureindex(map<int, vector<int>> findex, fvec2d a
 	return findex;
 }
 
-tuple <mappair, mappair, int, double, double, double, int, int> Graph::get_histo_pair(fvec faf, fvec dt) {
+tuple <mappair, mappair, int, double, double, double, int, int> & Graph::get_histo_pair(fvec faf, fvec dt) {
 	int nt = dt.size(); //sizeof(dt) / sizeof(dt[0]);
 	int nfa = faf.size(); //sizeof(faf) / sizeof(faf[0]);
 	double* pfaf = &faf[0]; //convert from vector to array
@@ -141,7 +141,7 @@ tuple <mappair, mappair, int, double, double, double, int, int> Graph::get_histo
 	return { histo_fa, histo_t, nbin, low, high, binsize0, nt, nfa };
 }
 
-double Graph::overlap(fvec faf, fvec dt) {
+double Graph::overlap(fvec & faf, fvec & dt) {
 	tuple <mappair, mappair, int, double, double, double, int, int> histopair = get_histo_pair(faf, dt);
 	// { histo_fa, histo_t, nbin, low, high, binsize0, nt, nfa };
 	feature_rank feature_ana(get<0>(histopair), get<1>(histopair), get<2>(histopair), ndt_obj,nfa_obj, get<6>(histopair), get<7>(histopair),percent);
@@ -149,7 +149,7 @@ double Graph::overlap(fvec faf, fvec dt) {
 	return overlap;
 }
 //
-tuple<double, int, double, double> Graph::decison(fvec faf, fvec dt, int uplimit, int d) {
+tuple<double, int, double, double> Graph::decison(fvec & faf, fvec & dt, int uplimit, int d) {
 	
 	tuple <mappair, mappair, int, double, double, double, int, int> histopair = get_histo_pair(faf, dt);
 
@@ -167,7 +167,7 @@ tuple<double, int, double, double> Graph::decison(fvec faf, fvec dt, int uplimit
 	return { bound, get<1>(outcome), delta_pd, delta_pfa}; //<double boundary, int direction, pfa%, pd%>
 }
 
-void Graph::dfs_decision(int parentnode, bool visited[], int nfeature,vector<int> featuredir,vector<string> featurenames) { 
+void Graph::dfs_decision(int parentnode, bool & visited[], int nfeature,vector<int> & featuredir,vector<string> & featurenames) { 
 
 	visited[parentnode] = true;
 	int currentnode;
