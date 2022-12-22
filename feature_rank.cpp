@@ -29,7 +29,7 @@ double feature_rank::featureoverlap() {
 	return ol;
 }
 //
-tuple<int,int, double, double> feature_rank::feature_boundary (int uplimit, int decisiongoal, vector<double> opt_para, int d) {
+tuple<int,int, double, double> feature_rank::feature_boundary (int uplimit, int decisiongoal, vector<double> & opt_para, int d) {
 	//double error, pfa0, pfa, pd_loss0, pd_loss;
 	double delta, delta_fa0, delta_fa,delta_pd0, delta_pd;
 	double alpha = opt_para[0];
