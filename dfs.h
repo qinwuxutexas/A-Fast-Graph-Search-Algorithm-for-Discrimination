@@ -39,14 +39,14 @@ public:
 	Graph(int, int, int, fvec2d, fvec2d, svec2d,svec2d, vector<double>, vector<double>, vector<double>, int, int, double); // Constructor
 	void addEdge();
 	void nodebuild();
-	double overlap(fvec faf, fvec tf);
-	tuple<double, int, double, double> decison(fvec faf, fvec tf, int uplimit, int d);
-	tuple <mappair, mappair, int, double, double, double, int, int> get_histo_pair(fvec faf, fvec tf);
-	tuple <mappair, mappair, int, double, double, double, int, int> weighted_histopair(fvec faf, fvec dt);
+	double overlap(fvec & faf, fvec & tf);
+	tuple<double, int, double, double> decison(fvec & faf, fvec & tf, int uplimit, int d);
+	tuple <mappair, mappair, int, double, double, double, int, int> get_histo_pair(fvec & faf, fvec & tf);
+	tuple <mappair, mappair, int, double, double, double, int, int> weighted_histopair(fvec & faf, fvec & dt);
 	void DFS(int start);
-	map<int, vector<int>> featureindex(map<int, vector<int>> findex, fvec2d arr2d, int row, double min, double max,
+	map<int, vector<int>> featureindex(map<int, vector<int>> & findex, fvec2d & arr2d, int row, double min, double max,
 		int currentnode, int parentnode);
-	void dfs_decision(int parentnode, bool visited[], int nfeature,vector<int> featuredir,
-		vector<string> featurenames); // , map<int, vector<int>> findex_dt, map<int, vector<int>> findex_fa);
+	void dfs_decision(int parentnode, bool & visited[], int nfeature,vector<int> & featuredir,
+		vector<string> & featurenames); // , map<int, vector<int>> findex_dt, map<int, vector<int>> findex_fa);
 };
 
