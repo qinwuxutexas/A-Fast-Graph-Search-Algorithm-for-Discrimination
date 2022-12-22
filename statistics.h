@@ -16,7 +16,7 @@ public:
 	double stdev();
 	double ztest(double x1, double x2, double sigma1, double sigma2);
 	mappair histogram(int bin, double binsize, double low, double high);
-	mappair weightedhistogram(int bin, double binsize, double low, double high, vector<double> weights);
+	mappair weightedhistogram(int bin, double binsize, double low, double high, vector<double> & weights);
 	statistics(double* arr_, int n_) {
 		arr = arr_;
 		n = n_;
