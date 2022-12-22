@@ -1,5 +1,5 @@
 #include "dfs.h"
-
+// depth first search to 
 Graph::Graph(int decisiongoal_,int depth_, int nchild_, fvec2d & f2d_dt_, fvec2d & f2d_fa_, svec2d & name2d_dt_, svec2d & name2d_fa_,
 	vector<double> & weights_dt_, vector<double> & weights_fa_,vector<double> & opt_para_, int ndt_, int nfa_, double percent_)
 {
@@ -12,7 +12,7 @@ Graph::Graph(int decisiongoal_,int depth_, int nchild_, fvec2d & f2d_dt_, fvec2d
 	this->nfa_obj = nfa_;
 	this->percent = percent_;
 	this->name2d_dt = name2d_dt_;
-    this->name2d_fa = name2d_fa_;
+    	this->name2d_fa = name2d_fa_;
 	this->dweight_dt = weights_dt_;
 	this->dweight_fa = weights_fa_;
 	this->decisiongoal = decisiongoal_;
