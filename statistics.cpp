@@ -71,7 +71,7 @@ mappair statistics::histogram(int bin, double binsize, double low, double high) 
 	return histo;
 }
 
-mappair statistics::weightedhistogram(int bin, double binsize, double low, double high, vector<double> weights) {
+mappair statistics::weightedhistogram(int bin, double binsize, double low, double high, vector<double> & weights) {
 	mappair histo = {};
 	for (int i = 0; i < bin; i++) {
 		histo[i].first = 0; //initilization of the histogram #
