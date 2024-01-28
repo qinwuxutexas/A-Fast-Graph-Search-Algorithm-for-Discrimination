@@ -1,4 +1,4 @@
-# Multibranch depth first search graph tree with dynamic & constrained optimization algorithm, to find optimal and rank classification rule(s). 
+# A Fast Graph Search Algorithm with Dynamic Optimization and Reduced Histogram for Discrimination of Binary Classification Problem
 
 This proposed algorithm aims to find the best path/rule for making classification decision. It is different than the general binary search tree (bst) algorithm as:
 1) the bst algorithm only picks out one "best" node at each path and depth as a root node and then goes down to left or right until reaching the leaf at the end. When predict results using the trained bst model, the decision rule (path) may vary dependent on the input feature data.
